@@ -1,0 +1,19 @@
+name: CI - api-gateway
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'api-gateway/**'
+      - '.github/workflows/reusable-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'api-gateway/**'
+
+jobs:
+  ci:
+    uses: ./.github/workflows/reusable-ci.yml
+    with:
+      service: api-gateway
+    secrets: inherit
